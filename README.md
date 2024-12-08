@@ -46,5 +46,7 @@ def answer(call):
 Цель проекта обеспечить удобное использование и поиска информации и обработка заявки на бронирование фотосесии
 
 # FAQ 
- maill:info@just1fy.ru [github](https://github.com/jus71fy)
+info@just1fy.ru  
+-----------------------------
+[github](https://github.com/jus71fy)
 
