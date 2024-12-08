@@ -13,7 +13,7 @@ app = Dash(__name__)
 app.layout = html.Div([
     html.Div(children='Фотостудия'),
     html.Hr(),
-    dcc.RadioItems(options=['Время', 'Имя'], value='Зал', id='controls-and-radio-item'),
+    dcc.RadioItems(options=['Дата', 'Имя'], value='Зал', id='controls-and-radio-item'),
     dash_table.DataTable(data=df.to_dict('records'), page_size=10),
     dcc.Graph(figure={}, id='controls-and-graph'),
     dcc.Graph(figure=px.pie(df, values='Стоимость', names='Зал')),
