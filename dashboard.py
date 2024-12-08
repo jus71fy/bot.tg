@@ -5,7 +5,6 @@ import plotly.express as px
 
 # Incorporate data
 df = pd.read_csv('https://raw.githubusercontent.com/jus71fy/bot.tg/refs/heads/master/data.csv')
-print(df)
 # Initialize the app
 app = Dash(__name__)
 
@@ -17,8 +16,8 @@ app.layout = html.Div([
     dcc.RadioItems(options=['Время', 'Имя'], value='Зал', id='controls-and-radio-item'),
     dash_table.DataTable(data=df.to_dict('records'), page_size=10),
     dcc.Graph(figure={}, id='controls-and-graph'),
-    dcc.Graph(figure=px.pie(df, values='Номер', names='Тип выступления')),
-    dcc.Graph(figure=px.bar(df, x='Площадка', y='Вместимость площадки'))
+    dcc.Graph(figure=px.pie(df, values='Стоимость', names='Зал')),
+    dcc.Graph(figure=px.bar(df, x='Имя', y='Время'))
 ])
 
 # Add controls to build the interaction
