@@ -20,4 +20,27 @@
 
  # Работоспособность бота
 Бот отзывается по команде > /start
-#### После чего, нам дают выбор между кнопок __Контакты__ , __Аналитика__,  __Бронирование__,__О нас__
+#### После чего, нам дают выбор между кнопок и если на них нажать 
+Контакты > Контакты фотостудии
+Аналитика > Ссылка на дашборд фотостудии
+Бронирование > Запись на фотосессию
+О нас > О фотостудии 
+
+## Строчка кода
+```
+@bot.callback_query_handler(func=lambda call: True)
+def answer(call):
+    if call.data == 'yes':
+        markup_reply = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item_contacts = types.KeyboardButton('Контакты')
+        item_analytics = types.KeyboardButton('Аналитика')
+        item_reservation = types.KeyboardButton('Бронирование')
+        item_information = types.KeyboardButton('О нас')
+        markup_reply.add(item_contacts, item_analytics, item_reservation , item_information)
+        bot.send_message(call.message.chat.id, 'Нажмите одну из кнопок', reply_markup=markup_reply)
+    elif call.data == 'no':
+        pass
+        bot.send_message(call.message.chat.id, 'Хорошо, если у вас будут вопросы, просто напишите!')
+```
+
+Цель проекта обеспечить удобное использование и поиска информации и обработка заявки на бронирование фотосесии
