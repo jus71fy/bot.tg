@@ -19,8 +19,8 @@ def start(message):
 def answer(call):
     if call.data == 'yes':
         markup_reply = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        item_contacts = types.KeyboardButton('Наши контакты')
-        item_analytics = types.KeyboardButton('Наша Аналитика')
+        item_contacts = types.KeyboardButton('Контакты')
+        item_analytics = types.KeyboardButton('Аналитика')
         item_reservation = types.KeyboardButton('Бронирование')
         item_information = types.KeyboardButton('О нас')
         markup_reply.add(item_contacts, item_analytics, item_reservation , item_information)
@@ -31,10 +31,13 @@ def answer(call):
 
 @bot.message_handler(content_types=['text'])
 def get_text(message):
-    if message.text == 'Наши контакты':
-        bot.send_message(message.chat.id, 'Вот, держи наши контакты: +7 (914) 444-77-77 Почта: orangedonelle@soscandia.org Мы находимся по адресу')
-    elif message.text == 'Аналитика студии':
-        bot.send_message(message.chat.id, 'Наша Аналитика')
+    if message.text == 'Контакты':
+        bot.send_message(message.chat.id, 'Телефон: +7 (914) 444-77-77 '
+        'Почта: orangedonelle@soscandia.org \
+        Мы находимся по адресу: Город Комсомольск-на-Амуре, ул. Пушкина-Калатушкина д,  подъезд 2 этаж 3' )
+    elif message.text == 'Аналитика'  :
+        bot.send_message(message.chat.id, 'Вот, ты можешь перейти по ссылку и подробно разобраться '
+        'http://127.0.0.1:8050/')
     elif message.text == 'О нас':
         bot.send_message(message.chat.id, 'Мы студия *PhotoLab* мы на рынке более 5-ти лет.')
     elif message.text == 'Бронирование':
