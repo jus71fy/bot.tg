@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 # Incorporate data
-df = pd.read_csv('https://raw.githubusercontent.com/IvanMA4HEB/TGBOTPROJECT/main/data.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/jus71fy/bot.tg/blob/master/data.csv')
 
 # Initialize the app
 app = Dash(__name__)
